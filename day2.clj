@@ -23,13 +23,12 @@
 ;; Part 2
 
 (defn div-result [coll]
-  (for [x ((comp reverse sort) coll)
+  (for [x coll
         y coll
         :when (and (zero? (rem x y)) (not= x y))]
        (/ x y)))
 
 (defn day2-2 [input]
   (->> input
-       (map div-result)
-       flatten
+       (mapcat div-result)
        (apply +)))
