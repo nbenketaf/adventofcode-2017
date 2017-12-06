@@ -14,8 +14,8 @@
        vals
        (filter #(> (count %) 1))))
 
-(defn day4-1 []
-  (let [colls (parse "day4-input.txt")
+(defn day4-1 [filename]
+  (let [colls (parse filename)
         res1 (solve #(apply distinct? %) colls)
         res2 (solve #(empty? (anagram %)) colls)]
     (println res1)
