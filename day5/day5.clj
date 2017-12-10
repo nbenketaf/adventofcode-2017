@@ -1,3 +1,11 @@
+(defn solve-reduce [coll f]
+  (reduce (fn [[coll index] res]
+            (if-let [offset (get coll index)]
+              [(update coll index (f offset)) (+ index offset)]
+              (reduced res)))
+          [coll 0]
+          (range)))
+
 (defn solve [coll f]
   (loop [coll coll
          index 0
