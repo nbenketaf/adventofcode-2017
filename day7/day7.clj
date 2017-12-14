@@ -15,6 +15,4 @@
                                                                           (map clojure.string/trim)
                                                                           (apply conj holded))])
                                       [#{} #{}]))]
-    (->> (clojure.set/intersection holding holded)
-         (clojure.set/difference holding)
-         first)))
+    (first (clojure.set/difference holding holded))))
